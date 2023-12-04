@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+  <button id="runTest">Run Test</button>
+
+  <div id="report"></div>
+
+  <script>
+    const socket = io('http://localhost:3000'); // 连接到服务器上的 Socket.IO
+
+    const btn = document.getElementById('runTest')
+
+    const testRecords = []
+
+    // 点击按钮运行测试
+    btn.addEventListener('click', () => {
+      // 向后端发送请求，触发 Cypress 测试运行
+      socket.emit('run-tests'); // 发送 'run-tests' 事件给服务器
+    })
+
+    // 显示报告
+    function displayReport(report) {
+      const html = `
+        <h3>Report:</h3>
+        <p>Total: ${report.total}</p> 
+      `
+
+      document.getElementById('report').innerHTML = html
+    }
+
+    // 接收日志
+    socket.on('test log', log => {
+      console.log(log)
+    })
+
+    // 接收测试完成的结果
+    socket.on('tests complete', results => {
+      displayReport(results); // 处理测试结果
+    })
+
+  </script>
+
+</body>
+</html>

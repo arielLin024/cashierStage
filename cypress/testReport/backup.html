@@ -1,0 +1,167 @@
+btn.addEventListener('click', () => { // 运行测试 cy.exec('npx cypress run
+--spec cypress/e2e/cashierStage.cy.js') // 生成报告
+cy.task('generateReport').then(report => { displayReport(report) }) })
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+  <button id="runTest">Run Test</button>
+
+  <div id="report"></div>
+
+  <script>
+
+    const socket = io()
+
+    const btn = document.getElementById('runTest')
+
+    btn.addEventListener('click', () => {
+        // 向后端发送请求，触发 Cypress 测试和报告生成
+        fetch('/run-tests-and-generate-report', { method: 'POST' })
+          .then((response) => response.json())
+          .then((data) => {
+            // 处理从后端返回的数据
+            displayReport(data.report);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      });
+
+    // 显示报告
+    function displayReport(report) {
+      const html = `
+        <h3>Report:</h3>
+        <p>Total: ${report.total}</p> 
+      `
+
+      document.getElementById('report').innerHTML = html
+    }
+
+    // 接收日志
+    socket.on('test log', log => {
+      console.log(log)
+    })
+
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../node_modules/socket.io-client/dist/socket.io.js"></script>
+</head>
+
+<body>
+
+  <button id="runTest">Run Test</button>
+
+  <div id="report"></div>
+
+  <script>
+
+    const socket = io()
+
+    const btn = document.getElementById('runTest')
+
+    btn.addEventListener('click', () => {
+      // 运行测试
+      cy.exec('npx cypress run --spec cypress/e2e/test.cy.js')
+
+      // 生成报告  
+      cy.task('generateReport').then(report => {
+        displayReport(report) 
+      })
+
+    })
+
+    // 显示报告
+    function displayReport(report) {
+      const html = `
+        <h3>Report:</h3>
+        <p>Total: ${report.total}</p> 
+      `
+
+      document.getElementById('report').innerHTML = html
+    }
+
+    // 接收日志
+    socket.on('test log', log => {
+      console.log(log)
+    })
+
+  </script>
+
+</body>
+</html>
+
+
+document.getElementById('runTest').addEventListener('click', () => {
+    cy.exec('npx cypress run --spec cypress/e2e/cashierStage.cy.js')
+
+    // 测试完成  
+    cy.task('getTestResults').then(result => {
+     // 生成记录并显示 
+    })
+  })
+
+  <!DOCTYPE html>
+<html>
+<head>
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+  <button id="runTest">Run Test</button>
+
+  <div id="report"></div>
+
+  <script>
+
+    const socket = io()
+
+    const btn = document.getElementById('runTest')
+
+    const testRecords = []
+
+    // 点击按钮运行测试
+    btn.addEventListener('click', () => {
+      // 向后端发送请求，触发 Cypress 测试运行
+      fetch('/run-tests-and-generate-report', { method: 'POST' })
+        .then((response) => response.json())
+        .then((data) => {
+          // 处理从后端返回的数据
+          displayReport(data.report);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    })
+
+    // 显示报告
+    function displayReport(report) {
+      const html = `
+        <h3>Report:</h3>
+        <p>Total: ${report.total}</p> 
+      `
+
+      document.getElementById('report').innerHTML = html
+    }
+
+    // 接收日志
+    socket.on('test log', log => {
+      console.log(log)
+    })
+
+  </script>
+
+</body>
+</html>

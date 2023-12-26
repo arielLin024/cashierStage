@@ -28,7 +28,7 @@
       "suites": [
         {
           "uuid": "24a94fc9-ecab-43ee-bf0f-7e2b05b60255",
-          "title": "cashierStage_20231207",
+          "title": "2023-12-07_1310_report",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
@@ -121,5 +121,6 @@
       },
       "version": "6.2.0"
     }
-  }
+  },
+  "date": "2023_12_07_05_10_16_858Z"
 }

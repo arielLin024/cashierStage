@@ -4,11 +4,11 @@
 var isWin = process.platform === 'win32'
 
 if (isWin) {
-  var fileEncoding = getFileEncoding('mochawesome.json')
+  var fileEncoding = getFileEncoding('mochawesome-sorted.json')
   var fs = require('fs')
-  var data = fs.readFileSync('mochawesome.json', fileEncoding)
+  var data = fs.readFileSync('mochawesome-sorted.json', fileEncoding)
   data = data.toString('utf8').replace(/^\uFEFF/, '') // remove BOM
-  fs.writeFileSync('mochawesome.json', data, 'utf8')
+  fs.writeFileSync('mochawesome-sorted.json', data, 'utf8')
 }
 
 function getFileEncoding(f) {

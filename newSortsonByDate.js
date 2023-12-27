@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const directory = 'C:/Users/ariel.lin/ecpay/cashierStage/cypress/results';
+const directory = 'C:/Users/ariel.lin/ecpay/cashierStage/cypress/results/.jsons';
 
 // 讀取目錄下的所有 JSON 檔案
 const files = fs.readdirSync(directory).filter(file => file.endsWith('.json'));

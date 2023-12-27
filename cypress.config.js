@@ -8,9 +8,9 @@ module.exports = defineConfig({
   e2e: {
     // ... 其他配置
   },
-  reporter: 'mochawesome', // cypress run 时的测试报告生成策略
+  reporter: 'cypress-mochawesome-reporter', // cypress run 时的测试报告生成策略
   reporterOptions: {
-    reportDir: path.join("cypress", "results"), // 設置 reportDir 為相對路徑
+    reportDir: path.join("cypress/results"), // 設置 reportDir 為相對路徑
     // /${dateString}
     reportFilename: reportFilename,
     overwrite: false, // 是否覆盖原来的报告

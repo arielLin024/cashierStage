@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const directory = 'C:/Users/ariel.lin/ecpay/cashierStage/cypress/results/.jsons';
+const directory = 'cypress/results/.jsons';
 
 // 讀取目錄下的所有 JSON 檔案
 const files = fs.readdirSync(directory).filter(file => file.endsWith('.json'));
@@ -11,6 +11,7 @@ const files = fs.readdirSync(directory).filter(file => file.endsWith('.json'));
 const processedData = files.map(file => {
     const filePath = path.join(directory, file);
     const rawData = fs.readFileSync(filePath, 'utf-8');
+    console.log(`Read file from path: ${filePath}`);
     const jsonData = JSON.parse(rawData);
 
     // 從檔名中獲取日期（這裡使用 start 的日期）
@@ -43,6 +44,7 @@ const sortedData = processedData.sort((a, b) => {
 sortedData.forEach(item => {
     const filePath = path.join(directory, item.file);
     fs.writeFileSync(filePath, JSON.stringify(item.content, null, 2), 'utf-8');
+    console.log(`Write file to path: ${filePath}`);
 });
 
 console.log('Sorting and adding dates completed.');

@@ -16,6 +16,9 @@ RUN apt-get update && \
     libgbm-dev \
     libatk1.0-0
 
+# 設置時區為台灣時區
+RUN ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+
 # 設置工作目錄
 WORKDIR /app
 

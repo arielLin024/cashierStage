@@ -1,5 +1,5 @@
-# 使用 node 14 作為基本映像
-FROM node:14
+# 使用 node 18 作為基本映像
+FROM node:18
 
 # 安裝必要的依賴項
 RUN apt-get update && \
@@ -34,12 +34,13 @@ RUN mkdir -p /app/cypress/results/.jsons
 COPY cypress/results/.jsons /app/cypress/results/.jsons
 
 # 安裝 Cypress
-RUN npm install cypress
+RUN npx cypress install
 
-RUN npm install -g mochawesome-merge
+# 安裝 mochawesome-merge
+RUN npx mochawesome-merge
 
 # 驗證 Cypress 安裝
-RUN $(npm bin)/cypress verify
+RUN npx cypress verify
 
 # 執行 Cypress 測試
 CMD npx cypress run && node newSortsonByDate.js && npx marge "mochawesome.json" -f report -o report

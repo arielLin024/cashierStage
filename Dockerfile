@@ -25,24 +25,24 @@ WORKDIR /app
 # 複製項目文件到工作目錄
 COPY . /app
 
-# 確認目錄存在並顯示其內容
-RUN ls -la /app/cypress/results
+# 複製整個 assets 目錄到容器中的 /app/assets
+COPY C:\Users\ariel.lin\ecpay\cashierStage\report\assets /app/assets
 
+# 安裝 Cypress 和相關依賴
+RUN npm install
+RUN npx cypress install
+
+# 創建存放 Cypress 測試結果的目錄
 RUN mkdir -p /app/cypress/results/.jsons
 
 # 複製報告檔案到容器中的目錄
 COPY cypress/results/.jsons /app/cypress/results/.jsons
 
-# 安裝 Cypress
-RUN npx cypress install
-
 # 安裝 mochawesome-merge
-RUN npx mochawesome-merge
+RUN npm install -g mochawesome-merge
 
 # 驗證 Cypress 安裝
 RUN npx cypress verify
 
 # 執行 Cypress 測試
 CMD npx cypress run && node newSortsonByDate.js && npx marge "mochawesome.json" -f report -o report
-
-

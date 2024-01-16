@@ -83,17 +83,8 @@ describe("cashierStage", () => {
     cy.get(payment.confirmBtn).click();
     cy.get(payment.chooseBank).select(payment.selectBank);
     cy.get(payment.atmSubmit).click();
-    cy.get(payment.paymentMethod).should(
-      "include.text",
-      payment.paymentMethodTitle
-    );
-    cy.get(payment.paymentMethodField).should(
-      "include.text",
-      payment.paymentMethodContent
-    );
-    cy.xpath(payment.accountTitle).should(
-      "include.text",
-      payment.accountContent
-    );
+    cy.get(payment.paymentMethod).should("include.text",payment.paymentMethodTitle);
+    cy.get(payment.paymentMethodField).should("include.text",payment.paymentMethodContent);
+    cy.xpath(payment.accountTitle).should("include.text",payment.accountContent);
   });
 });

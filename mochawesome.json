@@ -1,22 +1,99 @@
 {
   "stats": {
-    "suites": 21,
-    "tests": 42,
-    "passes": 36,
+    "suites": 22,
+    "tests": 44,
+    "passes": 38,
     "pending": 0,
     "failures": 6,
-    "testsRegistered": 42,
-    "passPercent": 85.71428571428571,
+    "testsRegistered": 44,
+    "passPercent": 86.36363636363636,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false,
     "start": "2024-01-02T01:32:35.913Z",
-    "end": "2024-01-24T02:19:03.219Z",
-    "duration": 1903587306
+    "end": "2024-01-25T03:29:23.154Z",
+    "duration": 1994207241
   },
   "results": [
+    {
+      "uuid": "5776b1a2-9408-4cb5-9682-36d975ec9c90",
+      "title": "",
+      "fullFile": "cypress\\e2e\\cashierStage.cy.js",
+      "file": "cypress\\e2e\\cashierStage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2068b82b-6c74-494a-bfb4-cb364aaa787b",
+          "title": "2024-01-25_1128_report",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "instantTrading",
+              "fullTitle": "cashierStage instantTrading",
+              "timedOut": null,
+              "duration": 38593,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Multi product\ncy.get(_testData.cartSelect.miltiItem).click();\ncy.get(_testData.cartSelect.colorBlack).click();\ncy.get(_testData.cartSelect.addCart).click();\ncy.get(_testData.cartSelect.closeCaetBtn).click();\ncy.get(_testData.cartSelect.backHomepage).click();\n// Single product\ncy.get(_testData.cartSelect.singleItem).click();\ncy.get(_testData.cartSelect.addQuantity).click();\ncy.get(_testData.cartSelect.addCart).click();\ncy.get(_testData.cartSelect.checkout).click();\n// Subscriber Information\ncy.wait(1500);\ncy.xpath(_testData.imformation.nextStep).click();\ncy.get(_testData.imformation.shippingMethods).click();\ncy.get(_testData.imformation.recipientNameField).type(_testData.imformation.recipientName);\ncy.get(_testData.imformation.recipientPhoneField).type(_testData.imformation.recipientPhone);\ncy.get(_testData.imformation.recipientMailField).type(_testData.imformation.recipientMail);\ncy.get(_testData.imformation.countryField).select(_testData.imformation.country);\n// Postal address\ncy.get(_testData.imformation.districtField).select(_testData.imformation.district);\ncy.get(_testData.imformation.addressField).type(_testData.imformation.address);\n// choose the payment method + Green member\ncy.get(_testData.payment.methodCreditCard).click();\ncy.get(_testData.payment.invoice).click();\ncy.get(_testData.payment.carrier).click();\ncy.get(_testData.payment.confirmBtn).click();\n// creditCard pay off\ncy.get(_testData.payment.creditCardNumField_1).type(_testData.payment.creditCardNum_1);\ncy.get(_testData.payment.creditCardNumField_2).type(_testData.payment.creditCardNum_2);\ncy.get(_testData.payment.creditCardNumField_3).type(_testData.payment.creditCardNum_3);\ncy.get(_testData.payment.creditCardNumField_4).type(_testData.payment.creditCardNum_4);\n// DL + security code\ncy.get(_testData.payment.creditmmField).type(_testData.payment.creditmmNum);\ncy.get(_testData.payment.credityyField).type(_testData.payment.credityyNum);\ncy.get(_testData.payment.securityCodeField).type(_testData.payment.securityCodeNum);\n// Customer information\ncy.get(_testData.payment.cardholderField).type(_testData.payment.cardholderName);\ncy.get(_testData.payment.cardholderPhoneField).type(_testData.payment.cardholderPhoneNum);\ncy.get(_testData.payment.paynowBtn).click();\ncy.get(_testData.payment.checkBtnClose).click();\ncy.get(_testData.payment.paySubmit).click();\ncy.get(_testData.payment.btnConfirm).click();\n// confirmation message\ncy.xpath(_testData.payment.orderCheck).should(\"include.text\", _testData.payment.checkText);\ncy.get(_testData.payment.thxBuy).should(\"include.text\", _testData.payment.thxBuyText);",
+              "err": {},
+              "uuid": "a5783e5a-37a2-4541-b8f3-a853552a6165",
+              "parentUUID": "2068b82b-6c74-494a-bfb4-cb364aaa787b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "nonInstantTrading",
+              "fullTitle": "cashierStage nonInstantTrading",
+              "timedOut": null,
+              "duration": 17568,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_testData.cartSelect.selectItem).click();\ncy.get(_testData.cartSelect.colorWhite).click();\ncy.get(_testData.payment.confirmBtn).click({\n  force: true\n});\ncy.wait(2000);\ncy.xpath(_testData.imformation.nextStep).click();\ncy.get(_testData.imformation.shippingMethods, {\n  timeout: 3000\n}).click();\ncy.get(_testData.imformation.overSea).click();\ncy.get(_testData.imformation.recipientNameField).type(_testData.imformation.recipientName);\ncy.get(_testData.imformation.recipientPhoneField).type(_testData.imformation.recipientPhone);\ncy.get(_testData.imformation.recipientMailField).type(_testData.imformation.recipientMail);\ncy.get(_testData.imformation.ordereNotRecipientBTN).click();\ncy.get(_testData.imformation.orderNameField).type(_testData.imformation.orderNeme);\ncy.get(_testData.imformation.orderPhoneField).type(_testData.imformation.orderPhone);\ncy.get(_testData.imformation.orderMailField).type(_testData.imformation.orderMail);\ncy.get(_testData.imformation.addressField).click().type(_testData.imformation.address);\ncy.get(_testData.payment.methodATM).click();\ncy.get(_testData.payment.invoice).click();\ncy.get(_testData.payment.carrier).click();\ncy.get(_testData.payment.confirmBtn).click();\ncy.get(_testData.payment.chooseBank).select(_testData.payment.selectBank);\ncy.get(_testData.payment.atmSubmit).click();\ncy.get(_testData.payment.paymentMethod).should(\"include.text\", _testData.payment.paymentMethodTitle);\ncy.get(_testData.payment.paymentMethodField).should(\"include.text\", _testData.payment.paymentMethodContent);\ncy.xpath(_testData.payment.accountTitle).should(\"include.text\", _testData.payment.accountContent);",
+              "err": {},
+              "uuid": "c8270afd-1f67-4e0c-b615-31fbdee7ebfb",
+              "parentUUID": "2068b82b-6c74-494a-bfb4-cb364aaa787b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a5783e5a-37a2-4541-b8f3-a853552a6165",
+            "c8270afd-1f67-4e0c-b615-31fbdee7ebfb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 56161,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
     {
       "uuid": "f4c85d41-0e11-417b-bbc0-e0dbea63b9b1",
       "title": "",
@@ -1670,7 +1747,7 @@
     "mochawesome": {
       "options": {
         "quiet": false,
-        "reportFilename": "2024-01-24_1017_report",
+        "reportFilename": "2024-01-25_1128_report",
         "saveHtml": false,
         "saveJson": true,
         "consoleReporter": "spec",
@@ -1682,7 +1759,7 @@
     "marge": {
       "options": {
         "reportDir": "cypress\\results\\.jsons",
-        "reportFilename": "2024-01-24_1017_report",
+        "reportFilename": "2024-01-25_1128_report",
         "overwrite": false,
         "html": false,
         "json": true

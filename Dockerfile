@@ -26,7 +26,7 @@ WORKDIR /app
 COPY . /app
 
 # 複製整個 assets 目錄到容器中的 /app/assets
-COPY C:\Users\ariel.lin\ecpay\cashierStage\report\assets /app/assets
+COPY ./report/assets /app/assets
 
 # 安裝 Cypress 和相關依賴
 RUN npm install

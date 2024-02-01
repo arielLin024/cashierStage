@@ -1,32 +1,11 @@
-name: CI/CD Workflow
+name: CI 
 
-on:
-  push:
-    branches:
-      - main # 替換成你的主分支名稱
+on: push
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run Cypress tests
-      run: npx cypress run
-
-    - name: Run Node.js script
-      run: node ./newSortsonByDate.js
-
-    - name: Generate and display the test report using marge
-      run: npx marge "C:/Users/ariel.lin/ecpay/cashierStage/mochawesome.json" -f report -o report
+    - uses: actions/checkout@v2
+    - run: npm install
+    - run: npm run build

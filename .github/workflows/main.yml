@@ -1,11 +1,32 @@
-name: CI 
+name: Build and Test
 
-on: push
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    branches: 
+      - master
 
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
-    - run: npm install
-    - run: npm run build
+    
+    - name: Build Docker image
+      run: docker build . --file Dockerfile --tag my-cypress-image
+      
+    - name: Run Cypress tests
+      run: |
+        docker run -v ${{ github.workspace }}:/app my-cypress-image
+        docker cp my-cypress-image:/app/cypress/results/.jsons ./cypress/results
+        
+    - name: Upload results  
+      uses: actions/upload-artifact@v2
+      with:
+        name: cypress-results
+        path: cypress/results

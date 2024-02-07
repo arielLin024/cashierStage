@@ -16,33 +16,38 @@ export const cartSelect = {
 };
 export const imformation = {
   nextStep: '//*[@id="checkout-root"]/div/div/div[2]/div/a', // cilck to checkout
-  shippingMethods: ":nth-child(2) > .sdtb-box > .sdtb-radio-list > :nth-child(5) > .radio", // shipping Methods
+  shippingMethods:
+    ":nth-child(2) > .sdtb-box > .sdtb-radio-list > :nth-child(5) > .radio", // shipping Methods
   recipientNameField: ".sfb-w1 > dd > .sfb-inp",
   recipientPhoneField: ".sfb-w2 > dd > .sfb-inp",
   recipientMailField: ".sfb-w3 > dl > dd > .sfb-inp",
-  recipientName: "candy",
-  recipientPhone: "0900555777",
+  recipientName: "陳小美",
+  recipientPhone: "0988166166",
   recipientMail: "aabcc321@ecpay.com.tw",
   countryField: "select",
-  country: "HSZ",
+  country: "TPE",
   districtField: ".sfb-w2 > span > .def-select > select",
-  district: "NTH",
+  district: "NGG",
   addressField: ".sdtb-form-box > .sfb-addr > .sfb-w4 > span > .sfb-inp",
-  address: "北北北北北北北北北北北北北北北北北",
+  address: "三重路19-2號6樓",
   overSea: ".sdtb-box > :nth-child(2) > .radio",
   // 非即時交易
   ordereNotRecipientBTN: ".checkbox",
-  orderNameField: ".sdtb-form-box:nth-child(3) > span > .sfb-w1 > dd > .sfb-inp",
-  orderPhoneField: ".sdtb-form-box:nth-child(3) > span > .sfb-w2 > dd > .sfb-inp",
+  orderNameField:
+    ".sdtb-form-box:nth-child(3) > span > .sfb-w1 > dd > .sfb-inp",
+  orderPhoneField:
+    ".sdtb-form-box:nth-child(3) > span > .sfb-w2 > dd > .sfb-inp",
   orderMailField: ".sdtb-form-box:nth-child(3) > .sfb-w3 > dl > dd > .sfb-inp",
-  orderNeme: "emily",
-  orderPhone: "0955333444",
+  orderNeme: "陳小美",
+  orderPhone: "0988166166",
   orderMail: "aabcc321@ecpay.com.tw",
 };
 export const payment = {
-  methodCreditCard: ":nth-child(6) > .sdtb-box > .sdtb-radio-list > :nth-child(1) > .radio", //creditCard
+  methodCreditCard:
+    ":nth-child(6) > .sdtb-box > .sdtb-radio-list > :nth-child(1) > .radio", //creditCard
   methodATM: ":nth-child(9) > .radio",
-  invoice: ":nth-child(7) > .sdtb-box > .sdtb-radio-list > :nth-child(1) > .radio",
+  invoice:
+    ":nth-child(7) > .sdtb-box > .sdtb-radio-list > :nth-child(1) > .radio",
   carrier: ":nth-child(3) > .sdtb-radio-list > :nth-child(1) > .radio",
   confirmBtn: ".btn-main",
   creditCardNumField_1: "#CCpart1",
@@ -53,18 +58,22 @@ export const payment = {
   creditCardNum_3: "2222",
   creditCardNumField_4: "#CCpart4",
   creditCardNum_4: "2222",
-  creditmmField: ".pay-tab-form > .pay-card-date > :nth-child(2) > div > #creditMM",
-  creditmmNum: "11",
-  credityyField: ".pay-tab-form > .pay-card-date > :nth-child(2) > div > #creditYY",
-  credityyNum: "25",
-  securityCodeField:".pay-tab-form > .pay-card-date > .pay-card-ccvb > dl > dd > #CreditBackThree",
+  creditmmField:
+    ".pay-tab-form > .pay-card-date > :nth-child(2) > div > #creditMM",
+  creditmmNum: "12",
+  credityyField:
+    ".pay-tab-form > .pay-card-date > :nth-child(2) > div > #creditYY",
+  credityyNum: "28",
+  securityCodeField:
+    ".pay-tab-form > .pay-card-date > .pay-card-ccvb > dl > dd > #CreditBackThree",
   securityCodeNum: "222",
   cardholderField: ":nth-child(6) > dd > #CCHolderTemp",
-  cardholderName: "Backy",
+  cardholderName: "王小明",
   cardholderPhoneField: ".pay-tab-form > .ptf-dfe-phone > dd > #CellPhoneCheck",
-  cardholderPhoneNum: "0900555777",
+  cardholderPhoneNum: "0988188188",
   paynowBtn: "#CreditPaySubmit",
-  checkBtnClose: "#Credit > .simplert > .simplert__content > .simplert__footer > #btnClose",
+  checkBtnClose:
+    "#Credit > .simplert > .simplert__content > .simplert__footer > #btnClose",
   paySubmit: "#CreditPaySubmit",
   btnConfirm: "#btnConfirm",
   orderCheck: "/html/body/div[2]/div/div/div/div/div[2]",

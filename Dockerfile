@@ -22,8 +22,10 @@ RUN apt-get update && \
 WORKDIR /app
 
 RUN apt-get update && apt-get -y install curl
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm && \
+    npm install -g npx
 
 # 複製項目文件到工作目錄
 COPY . .

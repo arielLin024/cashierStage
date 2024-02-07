@@ -48,7 +48,7 @@
 # CMD npx cypress run && node newSortsonByDate.js && npx marge "mochawesome.json" -f report -o report
 
 # 使用 node 18 作為基本映像
-FROM node:18
+FROM node:20
 
 # 安裝必要的依賴項
 RUN apt-get update && \
@@ -78,7 +78,7 @@ COPY ./report/assets /app/assets
 
 # 安裝 Cypress 和相關依賴
 RUN npm install
-RUN npx cypress install
+RUN npx cypress install --force
 
 # 創建存放 Cypress 測試結果的目錄
 RUN mkdir -p /app/cypress/results/.jsons

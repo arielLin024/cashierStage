@@ -21,6 +21,10 @@ RUN apt-get update && \
 # 設置工作目錄
 WORKDIR /app
 
+RUN apt-get update && apt-get -y install curl
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install -y nodejs
+
 # 複製項目文件到工作目錄
 COPY . .
 

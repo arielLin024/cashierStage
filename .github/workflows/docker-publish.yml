@@ -11,9 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install Node.js and npm
-        run: sudo apt-get update && sudo apt-get install -y nodejs npm
-
       - name: Login to Docker Hub
         run: docker login --username=arielin024 --password=${{ secrets.ARIELIN024 }}
 

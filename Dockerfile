@@ -1,5 +1,5 @@
 # 使用 node 20 作為基本映像
-FROM node:20
+FROM node:20.10.0
 
 # 安裝必要的依賴項並設置時區
 RUN apt-get update && \
@@ -20,12 +20,6 @@ RUN apt-get update && \
 
 # 設置工作目錄
 WORKDIR /app
-
-RUN apt-get update && apt-get -y install curl
-RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install -g npm && \
-    npm install -g npx
 
 # 複製項目文件到工作目錄
 COPY . .

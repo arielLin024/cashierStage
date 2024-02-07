@@ -22,7 +22,8 @@ RUN apt-get update && \
 WORKDIR /app
 
 # 複製項目文件到工作目錄
-COPY . /app
+# COPY . /app
+COPY . .
 
 # 複製整個 assets 目錄到容器中的 /app/assets
 COPY ./report/assets /app/assets

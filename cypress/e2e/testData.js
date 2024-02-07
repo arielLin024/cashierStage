@@ -22,7 +22,7 @@ export const imformation = {
   recipientMailField: ".sfb-w3 > dl > dd > .sfb-inp",
   recipientName: "candy",
   recipientPhone: "0900555777",
-  recipientMail: "candy0513@mail.com",
+  recipientMail: "aabcc321@ecpay.com.tw",
   countryField: "select",
   country: "HSZ",
   districtField: ".sfb-w2 > span > .def-select > select",
@@ -37,7 +37,7 @@ export const imformation = {
   orderMailField: ".sdtb-form-box:nth-child(3) > .sfb-w3 > dl > dd > .sfb-inp",
   orderNeme: "emily",
   orderPhone: "0955333444",
-  orderMail: "emily5566@mail.com",
+  orderMail: "aabcc321@ecpay.com.tw",
 };
 export const payment = {
   methodCreditCard: ":nth-child(6) > .sdtb-box > .sdtb-radio-list > :nth-child(1) > .radio", //creditCard

@@ -2,9 +2,21 @@
 FROM node:20
 
 # 安裝必要的依賴項
-RUN apk add --no-cache \
-  xvfb libgtk3 libnotify-dev libgconf2 libnss3 \
-  libxss1 libasound2 libxtst xauth libgbm libatk1.0-dev
+RUN apt-get update && \
+    apt-get install -y \
+    xvfb \
+    libgtk-3-0 \
+    libnotify-dev \
+    libgconf-2-4 \
+    libnss3 \
+    libxss1 \
+    libasound2 \
+    libxtst6 \
+    xauth \
+    libgbm-dev \
+    libatk1.0-0 && \
+    ln -fs /usr/share/zoneinfo/Asia/Taipei /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
 
 # 設置工作目錄
 WORKDIR /app
@@ -22,11 +34,8 @@ COPY ./report/assets /app/assets
 
 # 安裝依賴項
 COPY package*.json ./
-RUN npm install --verbose && npx cypress install --verbose
+RUN npm install && npx cypress install --force
 
-
-# 清除緩存 
-RUN npm cache clean --force && docker builder prune
 # # 創建存放 Cypress 測試結果的目錄
 # RUN mkdir -p /app/cypress/results/.jsons
 

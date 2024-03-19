@@ -1,6 +1,8 @@
 # 使用 node 20 作為基本映像
 FROM node:20.10.0
 
+LABEL org.opencontainers.image.source=https://github.com/arielin024/cashierstage:cypress
+
 # 安裝必要的依賴項並設置時區
 RUN apt-get update && \
     apt-get install -y \

@@ -17,9 +17,9 @@ jobs:
       - name: Login to Docker Hub
         run: docker login --username=arielin024 --password=${{ secrets.ARIELIN024 }}
 
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v3
+      # - name: Set up Docker Buildx
+      #   id: buildx
+      #   uses: docker/setup-buildx-action@v3
 
       - name: Build and push
         id: docker_build
